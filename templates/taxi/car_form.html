@@ -8,6 +8,10 @@
     {{ form|crispy }}
 
     <button type="submit" class="btn btn-primary">Save</button>
-    <a href="{% url 'taxi:car-detail' car.pk %}" class="btn btn-light">Cancel</a>
+    {% if object %}
+      <a href="{% url 'taxi:car-detail' car.pk %}" class="btn btn-light">Cancel</a>
+    {% else %}
+      <a href="{% url 'taxi:car-list' %}" class="btn btn-light">Cancel</a>
+    {% endif %}
 </form>
 {% endblock %}
